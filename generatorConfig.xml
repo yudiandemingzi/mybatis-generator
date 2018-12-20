@@ -4,16 +4,20 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
 <generatorConfiguration>
+
+    <!--一个context对应一个数据库-->
     <context id="MysqlContext" targetRuntime="MyBatis3Simple" defaultModelType="flat">
         <property name="beginningDelimiter" value="`"/>
         <property name="endingDelimiter" value="`"/>
 
+        <!--设置父类mapper,这样一来所有逆向工程生成的mapper都会继承该mapper-->
         <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
             <property name="mappers" value="com.binron.mapper.base.BaseMapper"/>
         </plugin>
 
+        <!--连接数据库信息-->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://47.99.203.55:3306/weixin"
+                        connectionURL="jdbc:mysql://47.99.888.55:3306/binron"
                         userId="root"
                         password="root">
         </jdbcConnection>
