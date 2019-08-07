@@ -9,7 +9,12 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-
+/**
+ * @Description: 逆向工程启动类
+ *
+ * @author xub
+ * @date 2019/8/7 下午1:59
+ */
 public class GeneratorDisplay {
 
 	public void generator() throws Exception{
@@ -17,7 +22,7 @@ public class GeneratorDisplay {
 		List<String> warnings = new ArrayList<String>();
 		boolean overwrite = true;
 		//指定 逆向工程配置文件
-		File configFile = new File("generatorConfig.xml"); 
+		File configFile = new File("generatorConfig.xml");
 		ConfigurationParser cp = new ConfigurationParser(warnings);
 		Configuration config = cp.parseConfiguration(configFile);
 		DefaultShellCallback callback = new DefaultShellCallback(overwrite);
@@ -25,8 +30,8 @@ public class GeneratorDisplay {
 				callback, warnings);
 		myBatisGenerator.generate(null);
 
-	} 
-	
+	}
+
 	public static void main(String[] args) throws Exception {
 		try {
 			GeneratorDisplay generatorSqlmap = new GeneratorDisplay();
@@ -34,6 +39,6 @@ public class GeneratorDisplay {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 	}
 }

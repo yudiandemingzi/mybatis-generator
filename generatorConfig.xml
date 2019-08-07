@@ -3,40 +3,47 @@
         PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
+
 <generatorConfiguration>
+<context id="testTables" targetRuntime="MyBatis3">
 
-    <!--一个context对应一个数据库-->
-    <context id="MysqlContext" targetRuntime="MyBatis3Simple" defaultModelType="flat">
-        <property name="beginningDelimiter" value="`"/>
-        <property name="endingDelimiter" value="`"/>
+    <!-- 这里的type里写的是你的实现类的类全路径 -->
+    <commentGenerator type="com.binron.generator.MyCommentGenerator">
+        <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+        <!--<property name="suppressAllComments" value="true"/>-->
+    </commentGenerator>
 
-        <!--设置父类mapper,这样一来所有逆向工程生成的mapper都会继承该mapper-->
-        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
-            <property name="mappers" value="com.binron.mapper.base.BaseMapper"/>
-        </plugin>
+    <!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                    connectionURL="jdbc:mysql://127.0.0.1:3306/test?useUnicode=true"
+                    userId="root"
+                    password="root">
+    </jdbcConnection>
 
-        <!--连接数据库信息-->
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://47.99.888.55:3306/binron"
-                        userId="root"
-                        password="root">
-        </jdbcConnection>
+    <!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer，为 true时把JDBC DECIMAL 和
+        NUMERIC 类型解析为java.math.BigDecimal -->
+    <javaTypeResolver>
+        <property name="forceBigDecimals" value="false"/>
+    </javaTypeResolver>
 
-        <!-- 对于生成的pojo所在包 -->
-        <javaModelGenerator targetPackage="com.binron.pojo" targetProject="src/main/java"/>
+    <!-- dto class -->
+    <javaModelGenerator targetPackage="com.binron.pojo" targetProject="src/main/java">
+        <property name="enableSubPackages" value="true"/>
+    </javaModelGenerator>
 
-		<!-- 对于生成的mapper所在目录 -->
-        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources"/>
+    <!-- mybatis xml file -->
+    <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources">
+        <property name="enableSubPackages" value="true"/>
+    </sqlMapGenerator>
 
-		<!-- 配置mapper对应的java映射 -->
-        <javaClientGenerator targetPackage="com.binron.mapper" targetProject="src/main/java" type="XMLMAPPER"/>
+    <!-- mapper class -->
+    <javaClientGenerator type="com.binron.generator.MyJavaMapperGenerator"
+                         targetPackage="com.binron.mapper" targetProject="src/main/java">
+        <property name="enableSubPackages" value="true"/>
+    </javaClientGenerator>
 
+    <!-- 指定数据库表 -->
+    <table tableName="user" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false" selectByExampleQueryId="false"/>
 
-        <!--需要逆向工程的表-->
-		<table tableName="users"></table>
-		<table tableName="my_friends"></table>
-		<table tableName="friends_request"></table>
-		<table tableName="chat_msg"></table>
-		 
-    </context>
+</context>
 </generatorConfiguration>
