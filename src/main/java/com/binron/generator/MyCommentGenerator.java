@@ -13,7 +13,7 @@ import java.util.*;
 import static org.mybatis.generator.internal.util.StringUtility.isTrue;
 
 /**
- * @Description: Mapper 修改
+ * @Description: Mapper 修改 生成指定的mapper
  *
  * @author xub
  * @date 2019/8/7 下午2:01

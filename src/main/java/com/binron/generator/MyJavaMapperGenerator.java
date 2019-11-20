@@ -6,7 +6,7 @@ import org.mybatis.generator.codegen.mybatis3.javamapper.JavaMapperGenerator;
 import java.util.List;
 
 /**
- * @Description: 生成实体 去除tab
+ * @Description: 生成实体  去除tab 可以根据需求去除
  *
  * @author xub
  * @date 2019/8/7 下午1:59

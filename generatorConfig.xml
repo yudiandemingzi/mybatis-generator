@@ -15,8 +15,8 @@
 
         <!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://56cbb9f62fac6.sh.cdb.myqcloud.com:6634/gic_goods4.0?useUnicode=true"
-                        userId="cdb_outerroot"
+                        connectionURL="jdbc:mysql://localhost:3306/user?useUnicode=true"
+                        userId="root"
                         password="123456">
         </jdbcConnection>
 
