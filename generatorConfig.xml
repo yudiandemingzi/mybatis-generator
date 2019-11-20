@@ -5,45 +5,45 @@
 
 
 <generatorConfiguration>
-<context id="testTables" targetRuntime="MyBatis3">
+    <context id="testTables" targetRuntime="MyBatis3">
 
-    <!-- 这里的type里写的是你的实现类的类全路径 -->
-    <commentGenerator type="com.binron.generator.MyCommentGenerator">
-        <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
-        <!--<property name="suppressAllComments" value="true"/>-->
-    </commentGenerator>
+        <!-- 这里的type里写的是你的实现类的类全路径 -->
+        <commentGenerator type="com.binron.generator.MyCommentGenerator">
+            <!-- 是否去除自动生成的注释 true：是 ： false:否 -->
+            <!--<property name="suppressAllComments" value="true"/>-->
+        </commentGenerator>
 
-    <!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
-    <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                    connectionURL="jdbc:mysql://127.0.0.1:3306/test?useUnicode=true"
-                    userId="root"
-                    password="root">
-    </jdbcConnection>
+        <!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://56cbb9f62fac6.sh.cdb.myqcloud.com:6634/gic_goods4.0?useUnicode=true"
+                        userId="cdb_outerroot"
+                        password="@09ui%sbc09">
+        </jdbcConnection>
 
-    <!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer，为 true时把JDBC DECIMAL 和
-        NUMERIC 类型解析为java.math.BigDecimal -->
-    <javaTypeResolver>
-        <property name="forceBigDecimals" value="false"/>
-    </javaTypeResolver>
+        <!-- 默认false，把JDBC DECIMAL 和 NUMERIC 类型解析为 Integer，为 true时把JDBC DECIMAL 和
+            NUMERIC 类型解析为java.math.BigDecimal -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
 
-    <!-- dto class -->
-    <javaModelGenerator targetPackage="com.binron.pojo" targetProject="src/main/java">
-        <property name="enableSubPackages" value="true"/>
-    </javaModelGenerator>
+        <!-- dto class -->
+        <javaModelGenerator targetPackage="com.binron.pojo" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaModelGenerator>
 
-    <!-- mybatis xml file -->
-    <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources">
-        <property name="enableSubPackages" value="true"/>
-    </sqlMapGenerator>
+        <!-- mybatis xml file -->
+        <sqlMapGenerator targetPackage="mapper" targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
 
-    <!-- mapper class -->
-    <javaClientGenerator type="com.binron.generator.MyJavaMapperGenerator"
-                         targetPackage="com.binron.mapper" targetProject="src/main/java">
-        <property name="enableSubPackages" value="true"/>
-    </javaClientGenerator>
+        <!-- mapper class -->
+        <javaClientGenerator type="com.binron.generator.MyJavaMapperGenerator"
+                             targetPackage="com.binron.mapper" targetProject="src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
 
-    <!-- 指定数据库表 -->
-    <table tableName="user" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false" selectByExampleQueryId="false"/>
+        <!-- 指定数据库表 -->
+        <table tableName="tab_spec_category_property" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" enableUpdateByExample="false" selectByExampleQueryId="false"/>
 
-</context>
+    </context>
 </generatorConfiguration>
